@@ -37,7 +37,8 @@ struct list_head {
  */
 static inline void INIT_LIST_HEAD(struct list_head *head)
 {
-    head->next = head; head->prev = head;
+    head->next = head;
+    head->prev = head;
 }
 
 /**
@@ -62,7 +63,8 @@ static inline void list_add_tail(struct list_head *node, struct list_head *head)
 static inline void list_remove(struct list_head *node)
 {
     struct list_head *next = node->next, *prev = node->prev;
-    next->prev = prev; prev->next = next;
+    next->prev = prev;
+    prev->next = next;
 }
 
 /**
